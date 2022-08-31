@@ -1,9 +1,18 @@
 public class Radio {
     private int currentStation;
     private int currentSound;
+    private int stationsCount;
+
+    public Radio () {
+        this.stationsCount = 10;
+    }
+
+    public Radio (int stationsCount) {
+        this.stationsCount = stationsCount;
+    }
 
     public void nextStation() {
-        if (currentStation < 9) {
+        if (currentStation < stationsCount-1) {
             currentStation++;
         } else {
             currentStation = 0;
@@ -14,7 +23,7 @@ public class Radio {
         if (currentStation > 0) {
             currentStation--;
         } else {
-            currentStation = 9;
+            currentStation = stationsCount;
         }
     }
 
@@ -26,7 +35,7 @@ public class Radio {
         if (currentStation < 0) {
             return;
         }
-        if (currentStation > 9) {
+        if (currentStation > stationsCount) {
             return;
         }
         this.currentStation = currentStation;
@@ -34,12 +43,12 @@ public class Radio {
     }
 
     public void increaseSound() {
-        if (currentSound < 10) {
+        if (currentSound < 100) {
             currentSound = currentSound + 1;
         }
     }
 
-    public void DecreaseSound() {
+    public void decreaseSound() {
         if (currentSound > 0) {
             currentSound = currentSound - 1;
         }
@@ -55,7 +64,7 @@ public class Radio {
         if (currentSound < 0) {
             return;
         }
-        if (currentSound > 10) {
+        if (currentSound > 100) {
             return;
         }
         this.currentSound = currentSound;
